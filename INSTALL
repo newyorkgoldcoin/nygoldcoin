@@ -1,0 +1,9 @@
+Building New York Gold
+
+See doc/readme-qt.rst for instructions on building newyorkgoldc-QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of newyorkc.
+
+See doc/build-*.txt for instructions on building newyorkgoldcd,
+the intended-for-services, no-graphical-interface, reference
+implementation of newyorkc.

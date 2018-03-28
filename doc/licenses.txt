@@ -1,0 +1,9 @@
+Licenses of statically linked libraries:
+----------------------------------------
+ Berkeley DB   New BSD license with additional requirement that linked
+               software must be free open source
+ Boost         MIT-like license
+ miniupnpc     New (3-clause) BSD license
+ openssl       https://www.openssl.org/source/license.html
+ 
+ This product includes software written by Tim Hudson (tjh@cryptsoft.com)
