@@ -1,7 +1,7 @@
 #New York Gold [NYG]
 
 ## FAQ
-
+This is experimental software!
 New York Gold is a fork of the New York Coin codebase with improvements.
 
 New economic and mining incentives:
@@ -39,7 +39,7 @@ EARLY ADOPTERS REWARD:
 Blocks 0-20
 1M NYG 
 
-Blocks 21 - 1699
+Blocks 21 - 1700
 100K NYG  
 
 Blocks 1701 to 10,000
