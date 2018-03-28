@@ -839,74 +839,28 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash) {
 if (nHeight < 20) {
         nSubsidy = 1000000 * COIN;
     }
-    else if (nHeight > 20) {
-        nSubsidy = 100000 * COIN;
-    }
-    else if (nHeight > 100) {
-        nSubsidy = 10000 * COIN;
-    }
-    else if (nHeight > 500) {
-    nSubsidy = 5000 * COIN;
-    }
-    else if (nHeight > 1000) {
-        nSubsidy = 5555 * COIN;
-    }
 
-    else if (nHeight > 10000) {
-        nSubsidy = (1 + rand) * COIN;
-    } 
-
-    else if (nHeight > 20000) {
-        cseed_str = prevHash.ToString().substr(7,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand1 = generateMTRandom(seed, 1299);
-        nSubsidy = (1 + rand1) * COIN;
-    } else if (nHeight > 30000) {
-        cseed_str = prevHash.ToString().substr(6,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand2 = generateMTRandom(seed, 3299);
-        nSubsidy = (1 + rand2) * COIN;
-    } else if (nHeight > 40000) {
-        cseed_str = prevHash.ToString().substr(7,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand3 = generateMTRandom(seed, 6499);
-        nSubsidy = (1 + rand3) * COIN;
-    } else if (nHeight > 50000) {
-        cseed_str = prevHash.ToString().substr(7,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand4 = generateMTRandom(seed, 12499);
-        nSubsidy = (1 + rand4) * COIN;
-    } else if (nHeight > 60000) {
-        cseed_str = prevHash.ToString().substr(6,7);
-        cseed = cseed_str.c_str();
-        seed = hex2long(cseed);
-        rand5 = generateMTRandom(seed, 49999);
-        nSubsidy = (1 + rand5) * COIN;
-    }
-    else if (nHeight > 100000) {
+        else if (nHeight > 1000000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand5 = generateMTRandom(seed, 1111);
                 nSubsidy = (1 + rand5) * COIN;
         } 
-    else if (nHeight > 200000) {
+
+        else if (nHeight > 700000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 1299);
+                rand5 = generateMTRandom(seed, 1799);
                 nSubsidy = (1 + rand5) * COIN;
         } 
 
-    else if (nHeight > 300000) {
+    else if (nHeight > 500000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 2999);
+                rand5 = generateMTRandom(seed, 1499);
                 nSubsidy = (1 + rand5) * COIN;
         } 
 
@@ -919,29 +873,88 @@ if (nHeight < 20) {
         } 
 
 
-    else if (nHeight > 500000) {
+    else if (nHeight > 300000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 1499);
+                rand5 = generateMTRandom(seed, 2999);
                 nSubsidy = (1 + rand5) * COIN;
         } 
 
-        else if (nHeight > 700000) {
+
+      
+    else if (nHeight > 200000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 1799);
+                rand5 = generateMTRandom(seed, 1299);
                 nSubsidy = (1 + rand5) * COIN;
         } 
 
-        else if (nHeight > 1000000) {
+
+  else if (nHeight > 100000) {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand5 = generateMTRandom(seed, 1111);
                 nSubsidy = (1 + rand5) * COIN;
         } 
+
+     else if (nHeight > 60000) {
+        cseed_str = prevHash.ToString().substr(6,7);
+        cseed = cseed_str.c_str();
+        seed = hex2long(cseed);
+        rand5 = generateMTRandom(seed, 49999);
+        nSubsidy = (1 + rand5) * COIN;
+    }
+
+    else if (nHeight > 50000) {
+        cseed_str = prevHash.ToString().substr(7,7);
+        cseed = cseed_str.c_str();
+        seed = hex2long(cseed);
+        rand4 = generateMTRandom(seed, 12499);
+        nSubsidy = (1 + rand4) * COIN;
+
+
+    } else if (nHeight > 40000) {
+        cseed_str = prevHash.ToString().substr(7,7);
+        cseed = cseed_str.c_str();
+        seed = hex2long(cseed);
+        rand3 = generateMTRandom(seed, 6499);
+        nSubsidy = (1 + rand3) * COIN;
+}
+
+else if (nHeight > 30000) {
+        cseed_str = prevHash.ToString().substr(6,7);
+        cseed = cseed_str.c_str();
+        seed = hex2long(cseed);
+        rand2 = generateMTRandom(seed, 3299);
+        nSubsidy = (1 + rand2) * COIN;
+}
+    else if (nHeight > 20000) {
+        cseed_str = prevHash.ToString().substr(7,7);
+        cseed = cseed_str.c_str();
+        seed = hex2long(cseed);
+        rand1 = generateMTRandom(seed, 1299);
+        nSubsidy = (1 + rand1) * COIN;
+    } 
+
+    else if (nHeight > 10000) {
+        nSubsidy = (1 + rand) * COIN;
+    } 
+
+    else if (nHeight > 1700) {
+        nSubsidy = 5555 * COIN;
+    }
+
+    else if (nHeight > 500) {
+    nSubsidy = 5000 * COIN;
+    }
+
+    else if (nHeight > 100) {
+        nSubsidy = 10000 * COIN;
+    }
+
 
 
     return nSubsidy + nFees;
