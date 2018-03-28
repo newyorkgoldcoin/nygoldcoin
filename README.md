@@ -2,6 +2,8 @@
 
 ## FAQ
 
+New York Gold is a fork of the New York Coin codebase with improvements.
+
 New economic and mining incentives:
 
 - Rewards future miners with an increasing reward schedule
