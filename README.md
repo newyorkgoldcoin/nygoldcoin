@@ -37,19 +37,13 @@ New York Gold is a Scrypt-based Proof of Work coin using the Kimoto Gravity Well
 
 EARLY ADOPTERS REWARD:
 Blocks 0-20
-1M NYG (20M Fixed)
+1M NYG 
 
-Blocks 21 - 100
-100K NYG  (8M Fixed)
+Blocks 21 - 1699
+100K NYG  
 
-Blocks 101 - 500
-10K NYG (4M Fixed)
-
-Blocks 501 - 1000 
-5K NYG (2.5M Fixed)
-
-Blocks 1001 to 10,000
-Reward: 5555 NYG (49.9M Fixed)
+Blocks 1701 to 10,000
+Reward: 5555 NYG 
 
 REWARD DROP AT BLOCK 10001 - RANDOM REWARDS BEGIN: 
 Blocks 10001 - 20000
