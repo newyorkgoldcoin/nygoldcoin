@@ -36,6 +36,7 @@ New York Gold is a Scrypt-based Proof of Work coin using the Kimoto Gravity Well
 30 second Block Targets, KGW difficulty readjustment every 5 minutes
 
 EARLY ADOPTERS REWARD:
+
 Blocks 0-20
 1M NYG 
 
@@ -46,10 +47,14 @@ Blocks 101 - 500
 10K NYG 
 
 Blocks 501 - 1700
+5K NYG
+
+Blocks 1701 -10000
 5555 NYG
 
 
 REWARD DROP AT BLOCK 10001 - RANDOM REWARDS BEGIN: 
+
 Blocks 10001 - 20000
 Reward: 1 to 1111 NYG (Random)
  
@@ -89,6 +94,7 @@ Blocks 700001 - 1000000
 Reward: 1 to 1799 NYG (Random)
 
 FINAL REWARD DROP AT BLOCK 1,000,001
+
 Blocks 1,000,001 to infinity 
 Random up to 1111 NYG
 
