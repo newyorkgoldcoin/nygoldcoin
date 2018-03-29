@@ -26,12 +26,12 @@ namespace Checkpoints
     // + Contains no strange transactions
     //
 
-	static const uint256 _CP1("0x7907d49ab177e1e84831357b2194a6be83ba37ca75381c7defbf983fcb443fba");
+	static const uint256 _CP1("0xb8fea361d6b6e517788547e776736606e01c0501ec034b2b59eb19682329364a");
 
     static MapCheckpoints mapCheckpoints =
             boost::assign::map_list_of
         (  0, hashGenesisBlockOfficial )
-			( 22, _CP1 )
+			( 20, _CP1 )
 			;
 
 
