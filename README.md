@@ -40,10 +40,10 @@ Blocks 0-20
 1M NYG 
 
 Blocks 21 - 100
-10K NYG  
+1111 NYG
 
 Blocks 101 - 500
-5K NYG
+10K NYG 
 
 Blocks 501 - 1700
 5555 NYG
