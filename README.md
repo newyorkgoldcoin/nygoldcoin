@@ -33,7 +33,7 @@ Unlimited - just like Doge
 New York Gold is a Scrypt-based Proof of Work coin using the Kimoto Gravity Well.
 
 ### Block Info
-30 second Block Targets, KGW difficulty readjustment every 5 minutes
+60 second Block Targets, KGW difficulty readjustment every 5 minutes
 
 EARLY ADOPTERS REWARD:
 
