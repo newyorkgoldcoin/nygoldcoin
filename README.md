@@ -12,9 +12,9 @@ New economic and mining incentives:
 
 Code improvements:
 
-- Addresses start with N
-- 60 second block time which means half the issuance rate of NYC
-- Difficulty adjusts every 5 minutes instead of 2 hours (Kimoto Gravity Well)
+- Addresses start with N instead of R
+- 30 second block time
+- Difficulty adjusts using 5 minutes instead of 2 hours (Kimoto Gravity Well)
 - Approximately 10x less coin supply than NYC
 - Windows wallet compiled with openssl 1.0.2n 
 
