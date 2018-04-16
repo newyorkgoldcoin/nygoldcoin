@@ -13,7 +13,6 @@ New economic and mining incentives:
 Code improvements:
 
 - Addresses start with N instead of R
-- 30 second block time
 - Minumum work adjusts using 5 minutes instead of 2 hours
 - Approximately 10x less coin supply than NYC
 - Windows wallet compiled with openssl 1.0.2n 
