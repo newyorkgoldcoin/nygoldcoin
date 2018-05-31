@@ -818,23 +818,23 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 
 int static generateMTRandom(unsigned int s, int range) {
-	random::mt19937 gen(s);
-	random::uniform_int_distribution<> dist(1, range);
-	return dist(gen);
+    random::mt19937 gen(s);
+    random::uniform_int_distribution<> dist(1, range);
+    return dist(gen);
 }
 
 int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash) {
-	int64 nSubsidy = 1111 * COIN;
+    int64 nSubsidy = 1111 * COIN;
 
     std::string cseed_str = prevHash.ToString().substr(7,7);
-	const char* cseed = cseed_str.c_str();
-	long seed = hex2long(cseed);
-	int rand = generateMTRandom(seed, 1111);
-	int rand1 = 0;
-	int rand2 = 0;
-	int rand3 = 0;
-	int rand4 = 0;
-	int rand5 = 0;
+    const char* cseed = cseed_str.c_str();
+    long seed = hex2long(cseed);
+    int rand = generateMTRandom(seed, 1111);
+    int rand1 = 0;
+    int rand2 = 0;
+    int rand3 = 0;
+    int rand4 = 0;
+    int rand5 = 0;
 
 if (nHeight < 20) {
         nSubsidy = 1000000 * COIN;
@@ -991,23 +991,23 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 }
 
 unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlock *pblock, uint64 TargetBlocksSpacingSeconds, uint64 PastBlocksMin, uint64 PastBlocksMax) {
-	const CBlockIndex  *BlockLastSolved	= pindexLast;
-	const CBlockIndex  *BlockReading	= pindexLast;
-	const CBlock *BlockCreating			= pblock;
-	BlockCreating						= BlockCreating;
-	uint64 PastBlocksMass  				= 0;
-	int64 PastRateActualSeconds			= 0;
-	int64 PastRateTargetSeconds			= 0;
-	double PastRateAdjustmentRatio		= double(1);
-	CBigNum PastDifficultyAverage;
-	CBigNum PastDifficultyAveragePrev;
-	double EventHorizonDeviation;
-	double EventHorizonDeviationFast;
-	double EventHorizonDeviationSlow;
+    const CBlockIndex  *BlockLastSolved = pindexLast;
+    const CBlockIndex  *BlockReading    = pindexLast;
+    const CBlock *BlockCreating         = pblock;
+    BlockCreating                       = BlockCreating;
+    uint64 PastBlocksMass               = 0;
+    int64 PastRateActualSeconds         = 0;
+    int64 PastRateTargetSeconds         = 0;
+    double PastRateAdjustmentRatio      = double(1);
+    CBigNum PastDifficultyAverage;
+    CBigNum PastDifficultyAveragePrev;
+    double EventHorizonDeviation;
+    double EventHorizonDeviationFast;
+    double EventHorizonDeviationSlow;
 
-	if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) { return bnProofOfWorkLimit.GetCompact(); }
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) { return bnProofOfWorkLimit.GetCompact(); }
 
-	for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
+    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
             if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
             PastBlocksMass++;
             
@@ -1031,33 +1031,33 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
             }
             if (BlockReading->pprev == NULL) { assert(BlockReading); break; }
             BlockReading = BlockReading->pprev;
-	}
+    }
 
-	CBigNum bnNew(PastDifficultyAverage);
-	if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
-		bnNew *= PastRateActualSeconds;
-		bnNew /= PastRateTargetSeconds;
-	}
+    CBigNum bnNew(PastDifficultyAverage);
+    if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
+        bnNew *= PastRateActualSeconds;
+        bnNew /= PastRateTargetSeconds;
+    }
 
     if (bnNew > bnProofOfWorkLimit) { bnNew = bnProofOfWorkLimit; }
 
-	printf("Difficulty Retarget - Kimoto Gravity Well\n");
-	printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-	printf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
-	printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    printf("Difficulty Retarget - Kimoto Gravity Well\n");
+    printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+    printf("Before: %08x  %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
+    printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 
-	return bnNew.GetCompact();
+    return bnNew.GetCompact();
 }
 
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock *pblock) {
-		static const int64 BlocksTargetSpacing	= 0.5 * 60; // 30 seconds
-		unsigned int TimeDaySeconds				= 60 * 60 * 24;
-		int64 PastSecondsMin					= TimeDaySeconds * 0.01;
-		int64 PastSecondsMax					= TimeDaySeconds * 0.14;
-		uint64 PastBlocksMin					= PastSecondsMin / BlocksTargetSpacing;
-		uint64 PastBlocksMax					= PastSecondsMax / BlocksTargetSpacing;
+        static const int64 BlocksTargetSpacing  = 0.5 * 60; // 30 seconds
+        unsigned int TimeDaySeconds             = 60 * 60 * 24;
+        int64 PastSecondsMin                    = TimeDaySeconds * 0.01;
+        int64 PastSecondsMax                    = TimeDaySeconds * 0.14;
+        uint64 PastBlocksMin                    = PastSecondsMin / BlocksTargetSpacing;
+        uint64 PastBlocksMax                    = PastSecondsMax / BlocksTargetSpacing;
 
-		return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
+        return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
 }
 
 unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const CBlock *pblock) {
@@ -1104,27 +1104,27 @@ unsigned int static GetNextWorkRequired_V1(const CBlockIndex* pindexLast, const 
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
     printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
 
-	if(pindexLast->nHeight+1 > 10000)	
-	{
-		if (nActualTimespan < nTargetTimespan/4)
-			nActualTimespan = nTargetTimespan/4;
-		if (nActualTimespan > nTargetTimespan*4)
-			nActualTimespan = nTargetTimespan*4;
-	}
-	else if(pindexLast->nHeight+1 > 5000)
-	{
-		if (nActualTimespan < nTargetTimespan/8)
-			nActualTimespan = nTargetTimespan/8;
-		if (nActualTimespan > nTargetTimespan*4)
-			nActualTimespan = nTargetTimespan*4;
-	}
-	else 
-	{
-		if (nActualTimespan < nTargetTimespan/16)
-			nActualTimespan = nTargetTimespan/16;
-		if (nActualTimespan > nTargetTimespan*4)
-			nActualTimespan = nTargetTimespan*4;
-	}
+    if(pindexLast->nHeight+1 > 10000)   
+    {
+        if (nActualTimespan < nTargetTimespan/4)
+            nActualTimespan = nTargetTimespan/4;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
+    else if(pindexLast->nHeight+1 > 5000)
+    {
+        if (nActualTimespan < nTargetTimespan/8)
+            nActualTimespan = nTargetTimespan/8;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
+    else 
+    {
+        if (nActualTimespan < nTargetTimespan/16)
+            nActualTimespan = nTargetTimespan/16;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
 
     // Retarget
     CBigNum bnNew;
@@ -1615,11 +1615,11 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex)
             return error("ConnectBlock() : UpdateTxIndex failed");
     }
 
-	uint256 prevHash = 0;
-	if(pindex->pprev)
-	{
-		prevHash = pindex->pprev->GetBlockHash();
-	}
+    uint256 prevHash = 0;
+    if(pindex->pprev)
+    {
+        prevHash = pindex->pprev->GetBlockHash();
+    }
 
     if (vtx[0].GetValueOut() > GetBlockValue(pindex->nHeight, nFees, prevHash))
         return false;
@@ -1860,9 +1860,9 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
         }
         if (nUpgraded > 0)
             printf("SetBestChain: %d of last 100 blocks above version %d\n", nUpgraded, CBlock::CURRENT_VERSION);
-	//        if (nUpgraded > 100/2)
+    //        if (nUpgraded > 100/2)
             // strMiscWarning is read by GetWarnings(), called by Qt and the JSON-RPC code to warn the user:
-	//            strMiscWarning = _("Warning: this version is obsolete, upgrade required");
+    //            strMiscWarning = _("Warning: this version is obsolete, upgrade required");
     }
 
     std::string strCmd = GetArg("-blocknotify", "");
@@ -2229,8 +2229,8 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.hashMerkleRoot = %s\n", block.hashMerkleRoot.ToString().c_str());
         assert(block.hashMerkleRoot == uint256("0x322adffe62f0e1404eba42e7327e1090be7f8cd133aa961a689a130fd63c4f3f"));
 
-		if (true && block.GetHash() != hashGenesisBlock) {
-		
+        if (true && block.GetHash() != hashGenesisBlock) {
+        
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
             // creating a different genesis block:
@@ -3996,19 +3996,19 @@ void static ThreadBitcoinMiner(void* parg)
 }
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet) {
-	fGenerateBitcoins = fGenerate;
-	nLimitProcessors = GetArg("-genproclimit", -1);
-	if (nLimitProcessors == 0) {
-		fGenerateBitcoins = false;
-	}
-	fLimitProcessors = (nLimitProcessors != -1);
+    fGenerateBitcoins = fGenerate;
+    nLimitProcessors = GetArg("-genproclimit", -1);
+    if (nLimitProcessors == 0) {
+        fGenerateBitcoins = false;
+    }
+    fLimitProcessors = (nLimitProcessors != -1);
 
-	if (fGenerate) {
-		int nProcessors = boost::thread::hardware_concurrency();
-		printf("%d processors\n", nProcessors);
-		if (nProcessors < 1) {
-			nProcessors = 1;
-		}
+    if (fGenerate) {
+        int nProcessors = boost::thread::hardware_concurrency();
+        printf("%d processors\n", nProcessors);
+        if (nProcessors < 1) {
+            nProcessors = 1;
+        }
         if (fLimitProcessors && nProcessors > nLimitProcessors)
             nProcessors = nLimitProcessors;
         int nAddThreads = nProcessors - vnThreadsRunning[THREAD_MINER];
