@@ -128,3 +128,4 @@ Your LIBS should look something like this:
 
 This will compile the windows wallet with static support for the SSL libraries. Hope this helps!
 
+
